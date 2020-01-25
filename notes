@@ -1,0 +1,536 @@
+'''
+-Python relies on indentation, using whitespace, to define scope in the code. Other programming languages often use curly-      brackets for this purpose.
+
+-Python does not have built-in support for Arrays, but Python Lists can be used instead.
+
+-an iterator is an object which implements the iterator protocol, which consist of the methods __iter__() [used to get an iterator] and __next__().
+
+-The try block lets you test a block of code for errors.
+
+The except block lets you handle the error.
+
+The finally block lets you execute code, regardless of the result of the try- and except blocks.
+'''
+a = '''Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua.'''    #multiline strings
+print(a)
+
+		# slicing
+b = "Hello, World!"
+print(b[2:5])   #5 not included
+
+import random   #built in module
+print(random.randrange(8,86))
+
+		#string functions
+a = " Hello, World! "
+print(a.strip()) # returns "Hello, World!"	
+
+a = "Hello, World!"
+print(a.replace("H", "J"))
+
+a = "Hello, World!"
+print(len(a))
+
+a = "Hello, World!"
+print(a.split(",")) # returns ['Hello', ' World!']
+
+
+
+'''age = 36
+txt = "My name is John, I am " + age
+print(txt)      
+the above code isn't allowed   But we can combine strings and numbers by using the format() method!
+
+The format() method takes the passed arguments, formats them, and places them in the string where the placeholders {} are'''
+
+quantity = 3
+itemno = 567
+price = 49.95
+myorder = "I want to pay {2} dollars for {0} pieces of item {1}."
+print(myorder.format(quantity, itemno, price))  # returns:I want to pay 49.95 dollars for 3 pieces of item 567.
+
+x,y=12,2    #12^2  = 12*12 =  144
+print(x ** y)
+
+x = 5
+
+x &= 3  # AND : 101 & 011   return 001= decimal 1
+x |= 3  # OR : 101 | 011 =111 =decimal 7
+x ^= 3  #exclusive or(XOR): 101 ^ 011=110= decimal 6
+x <<= 3 #left shift-multiplies by 2 : 5*2=10=10*2=20=20*2=40
+print(x)
+#Python Bitwise Operators: & , | , ~ , ^ << : zero left shift , >>:signed right shift
+
+#Python Logical Operators : and(used to combine conditional statements) , or , not
+
+'''Python Identity Operators:is , is not
+  Identity operators are used to compare the objects, not if they are equal, but if they are actually the same object, with the same memory location.
+  is:Returns true if both variables are the same object '''
+x = ["apple", "banana"]
+y = ["apple", "banana"]
+z = x
+
+
+print(x is z)
+
+# returns True because z is the same object as x
+
+print(x is y)
+
+# returns False because x is not the same object as y, even if they have thew same content
+
+print(x == y)
+# to demonstrate the difference betweeen "is" and "==": this comparison returns True because x is equal to y
+
+
+#membership operator : in , not in
+x = ["apple", "banana"]
+print("banana" in x)    # returns True because a sequence with the value "banana" is in the list
+
+
+thislist = ["apple", "banana", "cherry"]
+print(len(thislist))            #returns 3
+thislist.append("orange")          # add the item @ end position
+thislist.insert(1, "orange")    # to insert data @ a specific position :: returns: ['apple', 'orange', 'banana', 'cherry']
+thislist.remove("orange")          #removes specidied value
+thislist.pop()      #The pop() method removes the specified index, (or the last item if index is not specified)
+
+print(thislist)
+
+del thislist[0]         #removes the specified index
+del thislist            #delete the list completely :::print(thislist) -> will cause an error because you have succsesfully deleted "thislist".
+thislist.clear()        #empties the list
+
+'''TO COPY LIST 1 TO LIST 2'''
+#method 1
+mylist = thislist.copy()
+
+#method 2
+mylist = list(thislist)
+
+'''
+
+The break keyword only terminates the innermost for loop; any outer for loops will continue to run:
+
+
+
+     List  : is a collection which is ordered and changeable. Allows duplicate members.
+            ->  thislist = list(("apple", "banana", "cherry")) # note the double round-brackets :: list() constructor to make a List
+
+
+     Tuple : is a collection which is ordered and unchangeable. Allows duplicate members.
+             you cannot remove items from it, but you can delete the tuple completely:
+             -> thistuple = tuple(("apple", "banana", "cherry")) # note the double round-brackets
+
+     Set   : is a collection which is unordered(you cannot be sure in which order the items will appear.) and unindexed. No duplicate members.
+             you cannot change its items, but you can add new items.
+            ->  thisset = set(("apple", "banana", "cherry")) # note the double round-brackets   
+             
+Dictionary : is a collection which is unordered, changeable and indexed. No duplicate members
+
+
+    #DICTIONARY
+
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+
+thisdict["year"] = 2018
+
+print(thisdict)
+
+
+thisdict =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+#alternative
+thisdict = dict(brand="Ford", model="Mustang", year=1964)
+# note that keywords are not string literals
+# note the use of equals rather than colon for the assignment
+
+
+for x in thisdict:
+  print(x)                  # printss:only the keys: brand model year
+  print(thisdict[x])        ## printss:only the values
+
+
+  #del thisdict  #del keyword can also delete the dictionary completely as well as del keyword removes the item with the specified key name
+  print(thisdict)  # this will cause an error because "thisdict" no longer exists.
+
+
+a,b=3,4
+     #1 line if else works as ::do this on true if condition else do this
+print("A") if a > b else print("B") #One line if else statement(works like ternary operator)
+print("A") if a > b else (print("=") if a == b else print("B"))   #One line if else statement, with 3 conditions
+
+
+    #while
+# break : stop the loop before it has looped through all the items
+i = 1
+while i < 6:
+  print(i)
+  if i == 3:
+    break
+  i += 1                    #o/p : 1 2 3
+
+#continue : stop the current iteration of the loop, and continue with the next
+i = 0
+while i < 6:
+  i += 1
+  if i == 3:
+    continue
+  print(i)              #o/p:1 2 4 5 6
+
+for x in range(2, 6):
+    print(x)              # o/p 2 3 4 5
+else:
+  print("Finally finished!")        #else keyword in a for loop specifies a block of code to be executed when the loop is finished
+
+
+for x in range(2, 30, 3):     #  Increment the sequence with 3(default is 1)
+    print(x)
+
+adj = ["red", "big", "tasty"]
+fruits = ["apple", "banana", "cherry"]
+
+for x in adj:
+  for y in fruits:
+    print(x, y)
+
+        #functions
+#DEFAULT PARAMETER VALUE: if we call the function without parameter, it uses the default value
+def my_function(country = "Norway"):
+  print("I am from " + country)
+
+my_function("Sweden")
+my_function("India")
+my_function()
+my_function("Brazil")
+
+#recursion
+def tri_recursion(k):
+  if(k>0):
+    result = k+tri_recursion(k-1)
+    print(result)
+  else:
+    result = 0
+  return result
+
+print("\n\nRecursion Example Results")
+tri_recursion(6)
+
+
+'''Recursion Example Results
+1
+3
+6
+10
+15
+21'''
+
+
+        # A lambda function : can take any number of arguments, but can only have one expression
+            # SYNTAX : lambda arguments : expression
+            # use lambda functions when an anonymous function is required for a short period of time.
+x = lambda a : a + 10			#function lambda with argument as a & returns a+10
+x = lambda a, b : a * b
+print(x(5, 6))
+
+x = lambda a, b, c : a + b + c
+print(x(5, 6, 2))
+
+def myfunc(n):
+  return lambda a : a * n
+
+mydoubler = myfunc(2)
+mytripler = myfunc(3)
+
+print(mydoubler(11))
+print(mytripler(11))
+
+'''The __init__() Function
+
+To understand the meaning of classes we have to understand the built-in __init__() function.
+
+All classes have a function called __init__(), which is always executed when the class is being initiated.
+
+Use the __init__() function to assign values to object properties, or other operations that are necessary to do when the object is being created
+The __init__() function is called automatically every time the class is being used to create a new objects
+'''
+
+class Per:
+  def __init__(self, name, age):        #The self(can be any other name also) parameter is a reference to the current instance of the class, and is used to access variables that belong to the class.
+    self.name = name                    #self has to be the first parameter of any function in the class
+    self.age = age
+
+  def myfunc(self):
+    print("Hello my name is " + self.name)
+
+p1 = Per("John", 36)
+p1.myfunc()
+
+            #INHERITANCE
+class Person:               #parent/base class
+  def __init__(mysillyobject, f1name, age1):
+    mysillyobject.name = f1name
+    mysillyobject.age = age1
+
+  def myfunc(abc):
+    print("Hello my name is " + abc.name)
+
+#p1 = Person("John", 36)
+#p1.myfunc()
+    #   Delete the age property from the p1 object :: del p1.age
+    #  object delete entire object  ::: del object_name
+
+
+#Create a class named Student, which will inherit the properties and methods from the Person class:
+
+class Student(Person):          # child/derived class
+ # pass              #Note: Use the pass keyword when you do not want to add any other properties or methods to the class.
+# def __init__(self, fname, age):         #The child's __init__() function overrides the inheritance of the parent's __init__() function.
+
+# To keep the inheritance of the parent's __init__() function, add a call to the parent's __init__() function:
+
+    def __init__(self, f1name,age, year):
+     Person.__init__(self, f1name,age)
+     self.graduationyear = year
+
+    def welcome(self):
+         print("Welcome", self.name, self.age, "to the class of", self.graduationyear)          #in self.name , name is the variable name (property) we have given in the class person
+x=Student('fateh',12,99)
+x.welcome()
+#If you add a method in the child class with the same name as a function in the parent class, the inheritance of the parent method will be overridden.
+
+
+      #ITERATORS is an object which has 2 methods:iter(),next()
+ # Lists, tuples, dictionaries, and sets are all iterable objects. They are iterable containers which you can get an iterator from.
+ # All these objects have a iter() method which is used to get an iterator.
+ # We can also use a for loop to iterate through an iterable object.
+mytuple = ("apple", "banana", "cherry")
+myit = iter(mytuple)
+
+print(next(myit))
+print(next(myit))
+print(next(myit))
+
+
+class MyNumbers:
+  def __iter__(self):
+    self.a = 1
+    return self
+
+  def __next__(self):
+    if self.a <= 20:
+      x = self.a
+      self.a += 1
+      return x
+    else:
+      raise StopIteration
+
+myclass = MyNumbers()
+myiter = iter(myclass)
+
+for x in myiter:
+  print(x)
+
+
+
+'''  LIST METHODS
+Method	        Description
+append()	Adds an element at the end of the list
+clear()	    Removes all the elements from the list
+copy()	    Returns a copy of the list
+count()	    Returns the number of elements with the specified value
+extend()	Add the elements of a list (or any iterable), to the end of the current list
+index() 	Returns the index of the first element with the specified value
+insert()	Adds an element at the specified position
+pop()	    Removes the element at the specified position
+remove()	Removes the item with the specified value
+reverse()	Reverses the order of the list
+sort()  	Sorts the list
+
+    TUPLE METHODS
+count()	Returns the number of times a specified value occurs in a tuple
+index()	Searches the tuple for a specified value and returns the position of where it was found
+
+    SET
+Method                          	Description
+add()	                        Adds an element to the set
+clear()	                        Removes all the elements from the set
+copy()	                        Returns a copy of the set
+difference()	                Returns a set containing the difference between two or more sets
+difference_update()	            Removes the items in this set that are also included in another, specified set
+discard()	                    Remove the specified item
+intersection()	                Returns a set, that is the intersection of two other sets
+intersection_update()	        Removes the items in this set that are not present in other, specified set(s)
+isdisjoint()	                Returns whether two sets have a intersection or not
+issubset()	                    Returns whether another set contains this set or not
+issuperset()	                Returns whether this set contains another set or not
+pop()	                        Removes an element from the set
+remove()                    	Removes the specified element.you can use pop() but as the items are unordered you won't know which item is removed
+symmetric_difference()	        Returns a set with the symmetric differences of two sets
+symmetric_difference_update()	inserts the symmetric differences from this set and another
+union()	                        Return a set containing the union of sets
+update()	                    Update the set with the union of this set and others
+
+
+    DICTIONARY /hash map / associated array
+Method          	Description
+clear()     	Removes all the elements from the dictionary
+copy()      	Returns a copy of the dictionary
+fromkeys()     	Returns a dictionary with the specified keys and values
+get()       	Returns the value of the specified key
+items()     	Returns a list containing the a tuple for each key value pair
+keys()      	Returns a list containing the dictionary's keys
+pop()           Removes the element with the specified key
+popitem()	    Removes the last inserted key-value pair
+setdefault()	Returns the value of the specified key. If the key does not exist: insert the key, with the specified value
+update()	    Updates the dictionary with the specified key-value pairs
+values()	    Returns a list of all the values in the dictionary
+
+
+    ARRAYS
+Method  	   Description
+append()	Adds an element at the end of the list
+clear() 	Removes all the elements from the list
+copy()  	Returns a copy of the list
+count() 	Returns the number of elements with the specified value
+extend()	Add the elements of a list (or any iterable), to the end of the current list
+index() 	Returns the index of the first element with the specified value
+insert()	Adds an element at the specified position
+pop()   	Removes the element at the specified position
+remove()	Removes the first item with the specified value
+reverse()	Reverses the order of the list
+sort()  	Sorts the list
+
+
+Directive	Description	                                                         Example	
+%a	        Weekday, short version	                                             Wed	
+%A	        Weekday, full version	                                             Wednesday	
+%w      	Weekday as a number 0-6, 0 is Sunday	                             3	
+%d      	Day of month 01-31	                                                 31	
+%b      	Month name, short version	                                         Dec	
+%B      	Month name, full version	                                         December	
+%m      	Month as a number 01-12	                                             12	
+%y      	Year, short version, without century	                             18	
+%Y      	Year, full version                                                   2018	
+%H      	Hour 00-23                                                           17	
+%I      	Hour 00-12                                                           05	
+%p      	AM/PM                                                                PM	
+%M      	Minute 00-59                                                         41	
+%S      	Second 00-59	                                                     08	
+%f      	Microsecond 000000-999999	                                         548513	
+%z      	UTC offset	                                                        +0100	
+%Z      	Timezone	                                                        CST	
+%j      	Day number of year 001-366                                         	365	
+%U      	Week number of year, Sunday as the first day of week, 00-53        	52	
+%W      	Week number of year, Monday as the first day of week, 00-53         52	
+%c      	Local version of date and time	                                    Mon Dec 31 17:41:00 2018	
+%x      	Local version of date	                                            12/31/18	
+%X      	Local version of time	                                            17:41:00	
+%%      	A % character	                                                    %
+
+
+
+
+The %run Command You can run any file as a Python program inside the environment of your IPython session using the %run command. Suppose you had the following simple script stored in ipython_script_test.py:
+def f(x, y, z):    return (x + y) / z
+a = 5 b = 6 c = 7.5
+result = f(a, b, c) You can execute this by passing the filename to %run:
+In [14]: %run ipython_script_test.py The script is run in an empty namespace (with no imports or other variables defined) so that the behavior should be identical to running the program on the command line using python script.py. All of the variables (imports, functions, and globals) defined in the file (up until an exception, if any, is raised) will then be accessible in the IPython shell:
+In [15]: c Out [15]: 7.5
+In [16]: result Out[16]: 1.4666666666666666 If a Python script expects command-line arguments (to be found in sys.argv), these can be passed after the file path as though run on the command line.
+Should you wish to give a script access to variables already defined in the interactive IPython namespace, use %run -i instead of plain %run.
+In the Jupyter notebook, you may also use the related %load magic function, which imports a script into a code cell:
+>>> %load ipython_script_test.py
+    def f(x, y, z):        return (x + y) / z
+    a = 5    b = 6    c = 7.5
+
+
+
+###    %load learning.ipynb  imports a script into a code shell     whereas 
+	%run learning.ipynb  The script is run in an empty namespace (with no imports or other variables defined) so that the behavior should be identical to running the program on the command line using python script.py. All of the variables (imports, functions, and globals) defined in the file (up until an exception, if any, is raised) will then be accessible in the IPython shell:
+		
+Binary search and maintaining a sorted list The built-in bisect module implements binary search and insertion into a sorted list. bisect.bisect finds the location where an element should be inserted to keep it sorted, while bisect.insort actually inserts the element into that location:
+In [67]: import bisect
+In [68]: c = [1, 2, 2, 2, 3, 4, 7]
+In [69]: bisect.bisect(c, 2) Out[69]: 4
+In [70]: bisect.bisect(c, 5) Out[70]: 6
+In [71]: bisect.insort(c, 6)
+In [72]: c Out[72]: [1, 2, 2, 2, 3, 4, 6, 7]
+
+****note*****:::The bisect module functions do not check whether the list is sorted, as doing so would be computationally expensive. Thus, using them with an unsorted list will succeed without error but may lead to incorrect results
+
+
+
+
+
+	##Errors and Exception Handling
+ Handling Python errors or exceptions gracefully is an important part of building robust programs.
+In data analysis applications, many functions only work on certain kinds of input. As an example, Python’s float function is capable of casting a string to a floating-point number, but fails with ValueError on improper inputs:
+In [197]: float('1.2345') Out[197]: 1.2345
+In [198]: float('something') --------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+ <ipython-input-198-439904410854> in <module>() 
+----> 1 float('something') 
+ValueError: could not convert string to float: 'something'
+
+Suppose we wanted a version of float that fails gracefully, returning the input argument. We can do this by writing a function that encloses the call to float in a try/ except block:
+
+def attempt_float(x): 
+   try:       
+ return float(x)  
+  except:      
+  return x
+
+ The code in the except part of the block will only be executed if float(x) raises an exception:
+In [200]: attempt_float('1.2345') Out[200]: 1.2345
+In [201]: attempt_float('something') Out[201]:'something' 
+
+You might notice that float can raise exceptions other than ValueError:
+In [202]: float((1, 2)) --------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+ <ipython-input-202-842079ebb635> in <module>() 
+----> 1 float((1, 2)) 
+TypeError: float() argument must be a string or a number, not 'tuple'
+
+ You might want to only suppress ValueError, since a TypeError (the input was not a string or numeric value) might indicate a legitimate bug in your program. To do that, write the exception type after except:
+def attempt_float(x): 
+   try:      
+  return float(x)  
+  except ValueError:  
+      return x We have then:
+In [204]: attempt_float((1, 2)) --------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+ <ipython-input-204-9bdfd730cead> in <module>() 
+----> 1 attempt_float((1, 2))
+ <ipython-input-203-3e06b8379b6b> in attempt_float(x)      1 def attempt_float(x):
+      2     try:
+ ----> 3         return float(x)  
+    4     except ValueError:  
+    5         return x 
+TypeError: float() argument must be a string or a number, not 'tuple' 
+
+You can catch multiple exception types by writing a tuple of exception types instead (the parentheses are required):
+
+def attempt_float(x):   
+ try:       
+ return float(x)    
+except (TypeError, ValueError):   
+     return x
+
+
+
+
+
+
+'''
+

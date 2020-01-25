@@ -1,0 +1,45 @@
+print('fateh')
+price=10
+price=20
+print(price)
+
+''' F '''
+num=[5,2,5,2,2]
+for i in num:
+    print('*'*i)
+
+'''digit to number
+
+dnum={0:"zero",1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven",8:"eight",9:"nine"}
+
+ent=input("Enter number:")
+for i in ent:
+    print(dnum[int(i)])
+'''
+
+'''emoji convertr
+
+text=(input("Enter text with emoji >")).split(" ")
+
+emojis={ ":)":"😂"  ,  "(:":"😣"  }   ''''''windows key + >''''''
+
+op=""
+for word in text:
+    op += emojis.get(word,word) + " "
+print(op)
+
+'''
+
+from pathlib import Path
+
+#path=Path("emails")
+#print(path.exists())
+#path.mkdir()
+#path.rmdir()
+
+#glob to search for files and directories in the current path
+
+path=Path()
+for file in path.glob("*.*"):   #   *.* gives files(*) of all extension(.*) to search for all py files use *.py
+    print(file)
+
